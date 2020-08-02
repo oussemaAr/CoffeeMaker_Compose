@@ -1,0 +1,2 @@
+rootProject.name = "CoffeeMaker"
+include ':app'
