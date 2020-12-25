@@ -1,6 +1,7 @@
 package app.elite.coffeemaker.ui
 
-import androidx.ui.graphics.Color
+import androidx.compose.ui.graphics.Color
+
 
 val teal200 = Color(0xFF03DAC5)
 val brown700 = Color(0xFF2D140D)

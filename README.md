@@ -2,7 +2,9 @@
 Sample app, built with
 [Jetpack Compose](https://developer.android.com/jetpack/compose).
 
-Using the Canary version of Android Studio 4.2 Canary 7 and the `0.1.0-dev15` jetpack libraries. 
+~~Using the Canary version of `Android Studio 4.2 Canary 7` and the `0.1.0-dev15` jetpack libraries.~~
+### Update 25/12/2020
+Using the Canary version of `Android Studio Arctic Fox|2020.3.1 Canary 3` and the `1.0.0-alpha09` jetpack libraries.
 
 Screenshots
 -----------
@@ -45,7 +47,8 @@ See how to:
 
 [2]: app/src/main/java/app/elite/coffeemaker/model
 
-### Navigation
+###@Deprecated
+### Navigation 
 Package [`app.elite.coffeemaker.utils`][3]
 
 The Package contains the navigation class using `ViewModel` and `SavedStateHandle`
@@ -55,14 +58,47 @@ See how to:
 * Use `ViewModel` to navigate between screens
 * Use `SavedStateHandle` to handle navigation stack
 
-[3]: app/src/main/java/app/elite/coffeemaker/utils
 
 
+### New Navigation Using jetpack compose navigation
+Package [`app.elite.coffeemaker.utils`][4]
+
+Create a sealed class to hold the screens
+```
+sealed class Screen(val route: String) {
+    object SplashScreen : Screen("splash")
+    object Home : Screen("home")
+    object Details : Screen("details")
+}
+```
+
+Create a `NavController` by using the `rememberNavController()` inside the `MainActivity`
+```
+val navController = rememberNavController()
+```
+
+Finally create the `NavHost` using both the `NavController` and which screen to start with `startDestination`
+```
+NavHost(
+    navController = navController,
+    startDestination = Screen.SplashScreen.route
+    ){
+        composable(Screen.SplashScreen.route) { BaseComponent { SplashScreen(navController = navController) } }
+        composable(Screen.Home.route) { BaseComponent { CoffeeListScreen(navController = navController) } }
+        composable("${Screen.Details.route}/{id}") {
+            BaseComponent {
+            DetailsScreen(coffee = it.arguments?.getString("id", "1")?.toInt()!!)
+           }
+        }
+    }
+```
+
+[4]: app/src/main/java/app/elite/coffeemaker/utils
 ### Data
 
 The data in the sample is static, held in the `app.elite.coffeemaker.model` package in the `Data` class.
 
-### Comming Soon
+### Coming Soon
 
 * Adding more screen
 * Adding Unit Test

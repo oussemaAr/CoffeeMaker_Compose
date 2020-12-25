@@ -1,25 +1,26 @@
 package app.elite.coffeemaker.utils
 
-import androidx.compose.Composable
-import androidx.ui.foundation.Text
-import androidx.ui.material.AlertDialog
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.TextButton
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
+import androidx.compose.runtime.Composable
+
 
 @Composable
 fun FunctionalityNotAvailablePopup(onDismiss: () -> Unit) {
     AlertDialog(
-            onCloseRequest = onDismiss,
-            text = {
-                Text(
-                        text = "Functionality not available \uD83D\uDE48",
-                        style = MaterialTheme.typography.body2
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = onDismiss) {
-                    Text(text = "CLOSE")
-                }
+        onDismissRequest = onDismiss,
+        text = {
+            Text(
+                text = "Functionality not available \uD83D\uDE48",
+                style = MaterialTheme.typography.body2
+            )
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = "CLOSE")
             }
+        }
     )
 }
