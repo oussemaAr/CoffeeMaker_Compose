@@ -47,9 +47,7 @@ See how to:
 
 [2]: app/src/main/java/app/elite/coffeemaker/model
 
-###@Deprecated
-### Navigation 
-Package [`app.elite.coffeemaker.utils`][3]
+### Navigation @Deprecated
 
 The Package contains the navigation class using `ViewModel` and `SavedStateHandle`
 
@@ -59,9 +57,8 @@ See how to:
 * Use `SavedStateHandle` to handle navigation stack
 
 
-
 ### New Navigation Using jetpack compose navigation
-Package [`app.elite.coffeemaker.utils`][4]
+Package [`app.elite.coffeemaker.utils`][3]
 
 Create a sealed class to hold the screens
 ```
@@ -88,12 +85,12 @@ NavHost(
         composable("${Screen.Details.route}/{id}") {
             BaseComponent {
             DetailsScreen(coffee = it.arguments?.getString("id", "1")?.toInt()!!)
-           }
         }
     }
+}
 ```
+[3]: app/src/main/java/app/elite/coffeemaker/utils
 
-[4]: app/src/main/java/app/elite/coffeemaker/utils
 ### Data
 
 The data in the sample is static, held in the `app.elite.coffeemaker.model` package in the `Data` class.
