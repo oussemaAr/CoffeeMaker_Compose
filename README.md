@@ -8,9 +8,7 @@ Using the Canary version of `Android Studio Arctic Fox|2020.3.1 Canary 3` and th
 
 Screenshots
 -----------
-<img src="screenshots/image1.jpg" alt="Splash Screen">
-<img src="screenshots/image2.jpg" alt="Coffee List">
-<img src="screenshots/image3.jpg" alt="Coffee order">
+<img src="screenshots/image1.jpg" width=300 alt="Splash Screen"> <img src="screenshots/image2.jpg" width=300 alt="Coffee List"> <img src="screenshots/image3.jpg" width=300 alt="Coffee order">
 
 ## Features
 
